@@ -1,0 +1,1 @@
+This plugin create only for testing DIALOG

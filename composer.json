@@ -1,0 +1,24 @@
+{
+  "name": "leadvertex/plugin-dialog-example",
+  "description": "Example DIALOG plugin for developing UI at leadvertex.com",
+  "type": "project",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Timur Kasumov aka XAKEPEHOK",
+      "email": "support@leadvertex.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Leadvertex\\Plugin\\Instance\\Dialog\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4.0",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "leadvertex/plugin-core-dialog": "^0.1.0"
+  }
+}
