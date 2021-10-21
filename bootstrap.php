@@ -33,7 +33,7 @@ Translator::config('ru_RU');
 
 # 3. Configure info about plugin
 Info::config(
-    new PluginType(PluginType::PBX),
+    new PluginType(PluginType::DIALOG),
     fn() => Translator::get('info', 'Example dialog plugin'),
     fn() => Translator::get('info', 'This plugin created only for demo purposes'),
     [
