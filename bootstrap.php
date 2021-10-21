@@ -14,7 +14,7 @@ use Leadvertex\Plugin\Components\Settings\Settings;
 use Leadvertex\Plugin\Components\Translations\Translator;
 use Leadvertex\Plugin\Core\Actions\Upload\LocalUploadAction;
 use Leadvertex\Plugin\Core\Actions\Upload\UploadersContainer;
-use Leadvertex\Plugin\Core\Dialog\SendMessageQueue\DialogQueueHandleCommand;
+use Leadvertex\Plugin\Core\Dialog\SendMessageQueue\DialogSendQueueHandleCommand;
 use Leadvertex\Plugin\Instance\Dialog\Forms\SettingsForm;
 use Leadvertex\Plugin\Instance\Dialog\Sender\DialogSender;
 use Medoo\Medoo;
@@ -81,7 +81,7 @@ AutocompleteRegistry::config(function (string $name) {
 });
 
 # 6. Configure DialogQueueHandleCommand
-DialogQueueHandleCommand::config(new DialogSender());
+DialogSendQueueHandleCommand::config(new DialogSender());
 
 # 7. If plugin receive messages via gateway from:
 # - webhook: create any custom action that implement \Leadvertex\Plugin\Core\Actions\ActionInterface and add it by
