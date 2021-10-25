@@ -55,7 +55,7 @@ class DialogSender implements DialogSenderInterface
         $schedule[time() + $delay * 3] = MessageStatusSender::READ;
         $schedule[time() + $delay * 4] = $response;
 
-        if ($content && stripos($content->getText(), 'error') !== -1) {
+        if ($content && stripos($content->getText(), 'error') !== false) {
             $key = time() + $delay;
             $schedule = [$key => MessageStatusSender::ERROR];
         }
