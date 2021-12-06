@@ -1,1 +1,1 @@
-This plugin create only for testing DIALOG
+This plugin create only for testing CHAT

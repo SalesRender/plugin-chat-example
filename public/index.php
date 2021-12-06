@@ -1,5 +1,5 @@
 <?php
-use Leadvertex\Plugin\Core\Dialog\Factories\WebAppFactory;
+use Leadvertex\Plugin\Core\Chat\Factories\WebAppFactory;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

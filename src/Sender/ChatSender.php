@@ -5,23 +5,23 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Instance\Dialog\Sender;
+namespace Leadvertex\Plugin\Instance\Chat\Sender;
 
 use Leadvertex\Plugin\Components\Settings\Settings;
-use Leadvertex\Plugin\Core\Dialog\Components\Dialog\Dialog;
-use Leadvertex\Plugin\Core\Dialog\Components\Dialog\Message\Message;
-use Leadvertex\Plugin\Core\Dialog\Components\Dialog\Message\MessageContent;
-use Leadvertex\Plugin\Core\Dialog\Components\MessageStatusSender\MessageStatusSender;
-use Leadvertex\Plugin\Core\Dialog\SendMessageQueue\DialogSenderInterface;
-use Leadvertex\Plugin\Core\Dialog\SendMessageQueue\DialogSendTask;
+use Leadvertex\Plugin\Core\Chat\Components\Chat\Chat;
+use Leadvertex\Plugin\Core\Chat\Components\Chat\Message\Message;
+use Leadvertex\Plugin\Core\Chat\Components\Chat\Message\MessageContent;
+use Leadvertex\Plugin\Core\Chat\Components\MessageStatusSender\MessageStatusSender;
+use Leadvertex\Plugin\Core\Chat\SendMessageQueue\ChatSenderInterface;
+use Leadvertex\Plugin\Core\Chat\SendMessageQueue\ChatSendTask;
 
-class DialogSender implements DialogSenderInterface
+class ChatSender implements ChatSenderInterface
 {
 
-    public function __invoke(DialogSendTask $task)
+    public function __invoke(ChatSendTask $task)
     {
-        $dialog = $task->getDialog();
-        $message = $dialog->getMessage();
+        $chat = $task->getChat();
+        $message = $chat->getMessage();
 
         $setting = Settings::find()->getData();
 
@@ -36,10 +36,10 @@ class DialogSender implements DialogSenderInterface
             );
         }
 
-        $response = new Dialog(
+        $response = new Chat(
             null,
-            $dialog->getContact(),
-            $dialog->getSubject(),
+            $chat->getContact(),
+            $chat->getSubject(),
             new Message(
                 null,
                 $content,
@@ -66,7 +66,7 @@ class DialogSender implements DialogSenderInterface
                     continue;
                 }
 
-                if ($task instanceof Dialog) {
+                if ($task instanceof Chat) {
                     $task->send();
                 } else {
                     MessageStatusSender::send(

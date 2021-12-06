@@ -1,6 +1,6 @@
 <?php
 /**
- * Created for plugin-core-dialog
+ * Created for plugin-core-chat
  * Date: 30.11.2020
  * @author Timur Kasumov (XAKEPEHOK)
  */
@@ -14,9 +14,9 @@ use Leadvertex\Plugin\Components\Settings\Settings;
 use Leadvertex\Plugin\Components\Translations\Translator;
 use Leadvertex\Plugin\Core\Actions\Upload\LocalUploadAction;
 use Leadvertex\Plugin\Core\Actions\Upload\UploadersContainer;
-use Leadvertex\Plugin\Core\Dialog\SendMessageQueue\DialogSendQueueHandleCommand;
-use Leadvertex\Plugin\Instance\Dialog\Forms\SettingsForm;
-use Leadvertex\Plugin\Instance\Dialog\Sender\DialogSender;
+use Leadvertex\Plugin\Core\Chat\SendMessageQueue\ChatSendQueueHandleCommand;
+use Leadvertex\Plugin\Instance\Chat\Forms\SettingsForm;
+use Leadvertex\Plugin\Instance\Chat\Sender\ChatSender;
 use Medoo\Medoo;
 use XAKEPEHOK\Path\Path;
 
@@ -33,8 +33,8 @@ Translator::config('ru_RU');
 
 # 3. Configure info about plugin
 Info::config(
-    new PluginType(PluginType::DIALOG),
-    fn() => Translator::get('info', 'Example dialog plugin'),
+    new PluginType(PluginType::CHAT),
+    fn() => Translator::get('info', 'Example chat plugin'),
     fn() => Translator::get('info', 'This plugin created only for demo purposes'),
     [
         "contactType" => $_ENV['LV_PLUGIN_CONTACT_TYPE'],
@@ -80,14 +80,14 @@ AutocompleteRegistry::config(function (string $name) {
 //    }
 });
 
-# 6. Configure DialogQueueHandleCommand
-DialogSendQueueHandleCommand::config(new DialogSender());
+# 6. Configure ChatQueueHandleCommand
+ChatSendQueueHandleCommand::config(new ChatSender());
 
 # 7. If plugin receive messages via gateway from:
 # - webhook: create any custom action that implement \Leadvertex\Plugin\Core\Actions\ActionInterface and add it by
 # extends WebAppFactory or in `public/index.php`. In your action your should get webhook data and convert it into
-# \Leadvertex\Plugin\Core\Dialog\Components\Dialog\Dialog, after that call Dialog::send()
+# \Leadvertex\Plugin\Core\Chat\Components\Chat\Chat, after that call Chat::send()
 #
 # - API: create any custom console command @see https://symfony.com/doc/current/components/console.html and add it by
 # extends ConsoleAppFactory or in `console.php`. Also, you should add your command in cron. Your command should get data
-# from gateway API, convert it into \Leadvertex\Plugin\Core\Dialog\Components\Dialog\Dialog and call Dialog::send()
+# from gateway API, convert it into \Leadvertex\Plugin\Core\Chat\Components\Chat\Chat and call Chat::send()

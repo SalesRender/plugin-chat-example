@@ -1,11 +1,11 @@
 <?php
 /**
- * Created for plugin-dialog-example
+ * Created for plugin-chat-example
  * Datetime: 03.03.2020 15:43
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace Leadvertex\Plugin\Instance\Dialog\Forms;
+namespace Leadvertex\Plugin\Instance\Chat\Forms;
 
 
 use Leadvertex\Plugin\Components\Form\FieldDefinitions\FieldDefinition;
@@ -30,7 +30,7 @@ class SettingsForm extends Form
         };
         parent::__construct(
             Translator::get('settings', 'Settings'),
-            Translator::get('settings', 'Demo dialog plugin'),
+            Translator::get('settings', 'Demo chat plugin'),
             [
                 'main' => new FieldGroup(
                     Translator::get('settings', 'Main'),
