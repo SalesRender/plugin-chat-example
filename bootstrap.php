@@ -42,7 +42,7 @@ Info::config(
             "subject" => (bool) (int) $_ENV['LV_PLUGIN_CAPABILITY_SUBJECT'],
             "typing" => false,
             "messages" => [
-                "formats" => explode(' ', $_ENV['LV_PLUGIN_MESSAGE_FORMATS']),
+                "formats" => empty($_ENV['LV_PLUGIN_MESSAGE_FORMATS']) ? ['text'] : explode(' ', $_ENV['LV_PLUGIN_MESSAGE_FORMATS']),
                 "incoming" => (bool) (int) $_ENV['LV_PLUGIN_MESSAGE_INCOMING'],
                 "outgoing" => (bool) (int) $_ENV['LV_PLUGIN_MESSAGE_OUTGOING'],
                 "writeFirst" => (bool) (int) $_ENV['LV_PLUGIN_MESSAGE_WRITE_FIRST'],
@@ -53,7 +53,7 @@ Info::config(
                     "error"
                 ]
             ],
-            "attachments" => explode(' ', $_ENV['LV_PLUGIN_ATTACHMENTS']),
+            "attachments" => empty($_ENV['LV_PLUGIN_ATTACHMENTS']) ? [] : explode(' ', $_ENV['LV_PLUGIN_ATTACHMENTS']),
         ]
     ],
     new Developer(
