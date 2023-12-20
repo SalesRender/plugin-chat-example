@@ -1,24 +1,24 @@
 {
-  "name": "leadvertex/plugin-chat-example",
-  "description": "Example CHAT plugin for developing UI at leadvertex.com",
+  "name": "salesrender/plugin-chat-example",
+  "description": "Example CHAT plugin for developing UI at salesrender.com",
   "type": "project",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
       "name": "Timur Kasumov aka XAKEPEHOK",
-      "email": "support@leadvertex.com"
+      "email": "support@salesrender.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Leadvertex\\Plugin\\Instance\\Chat\\": "src/"
+      "SalesRender\\Plugin\\Instance\\Chat\\": "src/"
     }
   },
   "require": {
     "php": ">=7.4.0",
     "ext-curl": "*",
     "ext-json": "*",
-    "leadvertex/plugin-core-chat": "^0.2.0"
+    "salesrender/plugin-core-chat": "^0.2.0"
   }
 }

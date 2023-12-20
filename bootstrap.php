@@ -5,18 +5,18 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-use Leadvertex\Plugin\Components\Db\Components\Connector;
-use Leadvertex\Plugin\Components\Form\Autocomplete\AutocompleteRegistry;
-use Leadvertex\Plugin\Components\Info\Developer;
-use Leadvertex\Plugin\Components\Info\Info;
-use Leadvertex\Plugin\Components\Info\PluginType;
-use Leadvertex\Plugin\Components\Settings\Settings;
-use Leadvertex\Plugin\Components\Translations\Translator;
-use Leadvertex\Plugin\Core\Actions\Upload\LocalUploadAction;
-use Leadvertex\Plugin\Core\Actions\Upload\UploadersContainer;
-use Leadvertex\Plugin\Core\Chat\SendMessageQueue\ChatSendQueueHandleCommand;
-use Leadvertex\Plugin\Instance\Chat\Forms\SettingsForm;
-use Leadvertex\Plugin\Instance\Chat\Sender\ChatSender;
+use SalesRender\Plugin\Components\Db\Components\Connector;
+use SalesRender\Plugin\Components\Form\Autocomplete\AutocompleteRegistry;
+use SalesRender\Plugin\Components\Info\Developer;
+use SalesRender\Plugin\Components\Info\Info;
+use SalesRender\Plugin\Components\Info\PluginType;
+use SalesRender\Plugin\Components\Settings\Settings;
+use SalesRender\Plugin\Components\Translations\Translator;
+use SalesRender\Plugin\Core\Actions\Upload\LocalUploadAction;
+use SalesRender\Plugin\Core\Actions\Upload\UploadersContainer;
+use SalesRender\Plugin\Core\Chat\SendMessageQueue\ChatSendQueueHandleCommand;
+use SalesRender\Plugin\Instance\Chat\Forms\SettingsForm;
+use SalesRender\Plugin\Instance\Chat\Sender\ChatSender;
 use Medoo\Medoo;
 use XAKEPEHOK\Path\Path;
 
@@ -58,8 +58,8 @@ Info::config(
     ],
     new Developer(
         'LEADVERTEX',
-        'support@leadvertex.com',
-        'leadvertex.com',
+        'support@salesrender.com',
+        'salesrender.com',
     )
 );
 
@@ -84,10 +84,10 @@ AutocompleteRegistry::config(function (string $name) {
 ChatSendQueueHandleCommand::config(new ChatSender());
 
 # 7. If plugin receive messages via gateway from:
-# - webhook: create any custom action that implement \Leadvertex\Plugin\Core\Actions\ActionInterface and add it by
+# - webhook: create any custom action that implement \SalesRender\Plugin\Core\Actions\ActionInterface and add it by
 # extends WebAppFactory or in `public/index.php`. In your action your should get webhook data and convert it into
-# \Leadvertex\Plugin\Core\Chat\Components\Chat\Chat, after that call Chat::send()
+# \SalesRender\Plugin\Core\Chat\Components\Chat\Chat, after that call Chat::send()
 #
 # - API: create any custom console command @see https://symfony.com/doc/current/components/console.html and add it by
 # extends ConsoleAppFactory or in `console.php`. Also, you should add your command in cron. Your command should get data
-# from gateway API, convert it into \Leadvertex\Plugin\Core\Chat\Components\Chat\Chat and call Chat::send()
+# from gateway API, convert it into \SalesRender\Plugin\Core\Chat\Components\Chat\Chat and call Chat::send()

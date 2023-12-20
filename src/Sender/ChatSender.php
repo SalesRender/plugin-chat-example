@@ -5,15 +5,15 @@
  * @author Timur Kasumov (XAKEPEHOK)
  */
 
-namespace Leadvertex\Plugin\Instance\Chat\Sender;
+namespace SalesRender\Plugin\Instance\Chat\Sender;
 
-use Leadvertex\Plugin\Components\Settings\Settings;
-use Leadvertex\Plugin\Core\Chat\Components\Chat\Chat;
-use Leadvertex\Plugin\Core\Chat\Components\Chat\Message\Message;
-use Leadvertex\Plugin\Core\Chat\Components\Chat\Message\MessageContent;
-use Leadvertex\Plugin\Core\Chat\Components\MessageStatusSender\MessageStatusSender;
-use Leadvertex\Plugin\Core\Chat\SendMessageQueue\ChatSenderInterface;
-use Leadvertex\Plugin\Core\Chat\SendMessageQueue\ChatSendTask;
+use SalesRender\Plugin\Components\Settings\Settings;
+use SalesRender\Plugin\Core\Chat\Components\Chat\Chat;
+use SalesRender\Plugin\Core\Chat\Components\Chat\Message\Message;
+use SalesRender\Plugin\Core\Chat\Components\Chat\Message\MessageContent;
+use SalesRender\Plugin\Core\Chat\Components\MessageStatusSender\MessageStatusSender;
+use SalesRender\Plugin\Core\Chat\SendMessageQueue\ChatSenderInterface;
+use SalesRender\Plugin\Core\Chat\SendMessageQueue\ChatSendTask;
 
 class ChatSender implements ChatSenderInterface
 {
