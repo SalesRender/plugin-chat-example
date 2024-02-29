@@ -16,9 +16,9 @@
     }
   },
   "require": {
-    "php": ">=7.4.0",
+    "php": "^7.4.0",
     "ext-curl": "*",
     "ext-json": "*",
-    "salesrender/plugin-core-chat": "^0.2.0"
+    "salesrender/plugin-core-chat": "^0.3.0"
   }
 }
